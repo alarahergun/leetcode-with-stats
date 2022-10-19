@@ -1,17 +1,15 @@
 class Solution {
     public int minStartValue(int[] nums) {
-        int minStartValue = 1;
-        int sum = 1;
+        // in this question we aim to find the minimum prefix sum
+        // at the end we do 1 - (minVal) to find the necessary value
+        int minVal = 0;
+        int prefixSum = 0;
         
-        for(int i=0; i<nums.length; i++) {
-            sum += nums[i];
-            System.out.println("sum: "+ sum);
-            if(sum <= 0) {
-                minStartValue += 1 - (sum);
-                sum = 1;
-            }
+        for(int n: nums) {
+            prefixSum += n;
+            minVal = Math.min(minVal, prefixSum);
         }
         
-        return minStartValue;
+        return 1 - minVal;
     }
 }
