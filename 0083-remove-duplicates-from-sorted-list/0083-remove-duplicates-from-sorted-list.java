@@ -24,10 +24,6 @@ class Solution {
             }
         }
         
-        if(head.next != null && head.val == head.next.val) {
-            head.next = null;
-        }
-        
         return head;
         
     }
