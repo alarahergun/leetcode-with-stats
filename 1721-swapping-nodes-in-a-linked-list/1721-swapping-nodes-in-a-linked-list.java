@@ -10,27 +10,26 @@
  */
 class Solution {
     public ListNode swapNodes(ListNode head, int k) {
-        int[] list = new int[100001];
-        int count = 0;
+        // delete nth node from the end but an advanced version of it
         
-        ListNode temp = head;
-        while(temp != null) {
-            list[count] = temp.val;
-            temp = temp.next;
-            count++;
+        ListNode nthBegin;
+        ListNode fast = head;
+        ListNode slow = head;
+        
+        for(int i=0; i<k-1; i++) {
+            fast = fast.next;
         }
         
-        int swap = list[k-1];
-        list[k-1] = list[count-k];
-        list[count-k] = swap;
+        nthBegin = fast;
         
-        temp = head;
-        int i = 0;
-        
-        while(temp != null) {
-            temp.val = list[i++];
-            temp = temp.next;
+        while(fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
         }
+        
+        int swap = nthBegin.val;
+        nthBegin.val = slow.val;
+        slow.val = swap;
         
         return head;
     }
