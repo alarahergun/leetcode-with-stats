@@ -1,15 +1,12 @@
 class Solution {
     public boolean findRotation(int[][] mat, int[][] target) {
         // the same question with rotate image but rotating 3 times more
-        if(Arrays.deepEquals(mat, target)) {
-            return true;
-        }
         
         for(int i=0; i<4; i++) {
-            rotateImage(mat);
             if(Arrays.deepEquals(mat, target)) {
                 return true;
             }
+            rotateImage(mat);
         }
         
         return false;
