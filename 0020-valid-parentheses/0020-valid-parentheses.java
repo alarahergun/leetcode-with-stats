@@ -8,7 +8,7 @@ class Solution {
         Stack<Character> stack = new Stack<>();
         
         for(int i=0; i<s.length(); i++) {
-            if(!stack.isEmpty()) {
+            if(!stack.empty()) {
                 if(map.get(s.charAt(i)) == stack.peek()) {
                     stack.pop();
                 } else {
@@ -19,6 +19,6 @@ class Solution {
             } 
         }
         
-        return stack.isEmpty();
+        return stack.empty();
     }
 }
