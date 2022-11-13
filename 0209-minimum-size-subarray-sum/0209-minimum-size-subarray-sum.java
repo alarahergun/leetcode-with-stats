@@ -1,9 +1,8 @@
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
-        int min = nums.length;
+        int min = Integer.MAX_VALUE;
         int left = 0;
         int sum = 0;
-        boolean updated = false;
         
         for(int right=0; right<nums.length; right++) {
             sum += nums[right];
@@ -15,10 +14,9 @@ class Solution {
             
             if(sum >= target) {
                 min = Math.min(min, right-left+1);  
-                updated = true;
             }
         }
         
-        return updated ? min : 0;
+        return min == Integer.MAX_VALUE ? 0 : min;
     }
 }
