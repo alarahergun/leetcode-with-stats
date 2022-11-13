@@ -14,7 +14,6 @@ public class Solution {
         ListNode tortoise = head;
         ListNode hare = head;
         Set<ListNode> nodes = new HashSet<>();
-        int pos = 0;
         
         while(hare != null && hare.next != null) {
             tortoise = tortoise.next;
